@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'courses/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container"> 
+    <div class="row">
+        <div class="col-12">
+            <h1>Kayıt</h1>
+            <hr>
+            <form method="post" novalidate>
+                {% csrf_token %}
+                    {% include "partials/_form.html" %}
+                <button type="submit" class="btn btn-success">Kayıt ol</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

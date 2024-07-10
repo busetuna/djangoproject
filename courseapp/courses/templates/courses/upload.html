@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'courses/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container"> 
+    <div class="row">
+        <div class="col-12">
+            <form action="{% url 'upload_image' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="input-group">
+                    {{ form }}
+                    <button  type="submit">Yükle</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

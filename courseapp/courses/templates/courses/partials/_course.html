@@ -1,0 +1,23 @@
+{% load static %}
+
+<div class="card ">
+    <div class="row">
+        <div class="col-4 mt-3">
+            {% with image_path="courses/img/"|add:course.image %}
+                <img class="img-fluid rounded-start" src="{{ course.image.url }}" alt="{{ course.title }}">
+            {% endwith %}
+        </div>
+        <div class="col-8 mt-3">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="{% url 'course_details' course.slug %}">
+                          {{ course.title }}
+                    </a>
+                  </h5>
+                <p class="card-text">{{ course.subtitle }}</p>
+                
+                <p>{{ course.date }}</p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block page_title %}
+{{course.title}}
+{% endblock page_title %}
+
+
+{% block content %}
+
+<div class="container"> 
+    <div class="row">
+        <div class="col-4 ">
+            {% comment %} <div class="list-group">
+                {% for category in categories %}
+                  <a href="{% url 'courses_by_category' category%}" class="list-group-item list-group-item-action">{{category}}</a>
+                {% endfor %}
+              
+            </div> {% endcomment %}
+            {% with image_path="courses/img/"|add:course.image %}
+            <img class="img-fluid rounded-start" src="{% static image_path %}" alt="{{ course.title }}">
+            {% endwith %}
+            </div>
+
+        <div class="col-8 ">
+           <h1 class="h3">{{course.title}}</h1>
+           <p> 
+            {{course.subtitle}}
+           </p>
+        </div>
+
+    </div>
+<div class="row">
+<div class="col-12">
+    {{course.description|safe}}
+</div>
+
+</div>
+
+
+</div>
+
+{% endblock content %}

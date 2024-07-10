@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Anasayfa
+{% endblock page_title %}
+
+{% block content %}
+
+<div class="container"> 
+    <div class="row">
+        <div class="col-3">
+            {% include "courses/partials/_categories.html" %}
+        </div>
+
+        <div class="col-9 mt-5">  
+            {% include ' courses/partials/_slider.html'%}
+            {% if courses|length == 0 %}
+        
+                <div class="alert alert-warning">Kurs Bulunamadı.</div>
+            {% else %}
+                {% for course in courses %}
+                    {% if course.isActive %}
+                        {% include "courses/partials/_course.html" %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
